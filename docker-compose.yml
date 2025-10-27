@@ -1,0 +1,52 @@
+version: '3.8'
+
+services:
+  # PostgreSQL برای Event Store (Command Side)
+  postgres:
+    image: postgres:15
+    container_name: bank-postgres
+    environment:
+      POSTGRES_DB: mydb
+      POSTGRES_USER: reza
+      POSTGRES_PASSWORD: secret123
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  # MongoDB برای Read Database (Query Side)
+  mongodb:
+    image: mongo:4.4
+    container_name: bank-mongodb
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: admin
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+
+  # Apache Kafka + Zookeeper
+  zookeeper:
+    image: confluentinc/cp-zookeeper:7.5.0
+    container_name: bank-zookeeper
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+
+  kafka:
+    image: confluentinc/cp-kafka:7.5.0
+    container_name: bank-kafka
+    depends_on:
+      - zookeeper
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+    ports:
+      - "9092:9092"
+
+volumes:
+  postgres_data:
+  mongodb_data:

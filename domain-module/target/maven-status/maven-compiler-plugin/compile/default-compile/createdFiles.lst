@@ -1,0 +1,15 @@
+com\bank\domain\event\FundsDepositedEvent.class
+com\bank\domain\command\BaseCommand.class
+com\bank\domain\command\DepositFundsCommand.class
+com\bank\domain\query\FindAccountsWithBalanceQuery.class
+com\bank\domain\command\OpenAccountCommand.class
+com\bank\domain\event\AccountOpenedEvent.class
+com\bank\domain\event\BaseEvent.class
+com\bank\domain\command\WithdrawFundsCommand.class
+com\bank\domain\event\FundsWithdrawnEvent.class
+com\bank\domain\command\CloseAccountCommand.class
+com\bank\domain\event\AccountClosedEvent.class
+com\bank\domain\query\FindAccountByIdQuery.class
+com\bank\domain\query\BankAccountResponse.class
+com\bank\domain\query\FindAllAccountsQuery.class
+com\bank\domain\query\BaseQuery.class

@@ -1,0 +1,7 @@
+com\bank\query\config\KafkaConfig.class
+com\bank\query\QueryServiceApplication.class
+com\bank\query\eventhandler\BankAccountEventHandler.class
+com\bank\query\model\BankAccountView.class
+com\bank\query\repository\BankAccountRepository.class
+com\bank\query\controller\BankAccountQueryController.class
+com\bank\query\service\BankAccountQueryService.class

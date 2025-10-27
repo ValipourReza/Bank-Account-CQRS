@@ -13,6 +13,7 @@
     <modules>
         <module>domain-module</module>
         <module>command-service</module>
+        <module>query-service</module>
     </modules>
 
     <parent>

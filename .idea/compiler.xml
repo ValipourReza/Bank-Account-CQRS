@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="domain-module" />
+        <module name="query-service" />
         <module name="command-service" />
       </profile>
     </annotationProcessing>
@@ -15,6 +16,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="command-service" options="-parameters" />
       <module name="domain-module" options="-parameters" />
+      <module name="query-service" options="-parameters" />
     </option>
   </component>
 </project>

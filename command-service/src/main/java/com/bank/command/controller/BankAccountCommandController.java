@@ -23,20 +23,14 @@ public class BankAccountCommandController {
     }
 
     @PutMapping("/{accountId}/deposit")
-    public ResponseEntity<String> depositFunds(
-            @PathVariable String accountId,
-            @RequestBody DepositFundsCommand command) {
-
+    public ResponseEntity<String> depositFunds(@PathVariable String accountId, @RequestBody DepositFundsCommand command) {
         command.setAggregateId(accountId);
         depositFundsHandler.handle(command);
         return ResponseEntity.ok("Funds deposited to account: " + accountId);
     }
 
     @PutMapping("/{accountId}/withdraw")
-    public ResponseEntity<String> withdrawFunds(
-            @PathVariable String accountId,
-            @RequestBody WithdrawFundsCommand command) {
-
+    public ResponseEntity<String> withdrawFunds(@PathVariable String accountId, @RequestBody WithdrawFundsCommand command) {
         command.setAggregateId(accountId);
         withdrawFundsHandler.handle(command);
         return ResponseEntity.ok("Funds withdrawn from account: " + accountId);
